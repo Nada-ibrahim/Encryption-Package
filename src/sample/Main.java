@@ -3,6 +3,8 @@ package sample;
 import ClassicalEncryption.Boundary.ClassicalEncHome;
 import DES.Boundary.DesPage;
 import GroupOperations.Boundary.GFHome;
+import NumberTheory.RelativePrime;
+import NumberTheory.TestPrimality;
 import javafx.application.Application;
 
 import javafx.geometry.Orientation;
@@ -14,6 +16,7 @@ import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 
 
+import java.math.BigInteger;
 import java.util.*;
 
 public class Main extends Application {
@@ -70,10 +73,19 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        //DesCipher des = new DesCipher();
-//        System.out.println(des.encrypt("0123456789ABCDEF","133457799BBCDFF1"));
-//        System.out.println(des.decrypt("85e813540f0ab405","133457799BBCDFF1"));
-        //des.encrypt("FF12");
-        launch(args);
+//        RelativePrime R = new RelativePrime();
+//        System.out.println("R " +R.numOFrelative(35));
+//        List num = R.SetRelative;
+////         for (int i=0 ;i<num.size();i++)
+////         {
+////                 System.out.println(num.get(i));
+////
+////         }
+//
+//        ISRelative IR=new ISRelative();
+//        System.out.println( IR.isRelative(3, 10));
+        TestPrimality p = new TestPrimality();
+        System.out.print(p.test(new BigInteger("15487465")));
+        //launch(args);
     }
 }
