@@ -85,7 +85,7 @@ public class Main extends Application {
 //        ISRelative IR=new ISRelative();
 //        System.out.println( IR.isRelative(3, 10));
         TestPrimality p = new TestPrimality();
-        System.out.print(p.test(new BigInteger("15487465")));
+        System.out.print(p.test(new BigInteger("199")));
         //launch(args);
     }
 }

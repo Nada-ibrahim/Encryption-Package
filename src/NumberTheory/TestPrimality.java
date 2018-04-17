@@ -29,14 +29,11 @@ public class TestPrimality {
             q = q.divide(two);
             k++;
         }
-        BigInteger a = new BigInteger("1");
+//        BigInteger a = new BigInteger("1");
         A:
-        while (a.compareTo(number.subtract(one)) < 0) {
-          // BigInteger a = generateRandom(number.subtract(one));
-           a = a.add(one);
-           if(a.compareTo(number.divide(two)) > 0){
-               int c = 0;
-           }
+        while (randsize.compareTo(number.subtract(three)) < 0) {
+           BigInteger a = generateRandom(number.subtract(one));
+//            a = a.add(one);
             BigInteger g = a.modPow(q, number);
             if (g.equals(one)) {
                 continue;
@@ -57,11 +54,13 @@ public class TestPrimality {
 
     private BigInteger generateRandom(BigInteger number) {
         Random rand = new Random();
-        BigInteger n = new BigInteger(number.bitCount()+2, rand);
+        int c = number.bitCount();
+        c = number.bitLength();
+        BigInteger n = new BigInteger(number.bitLength(), rand);
         n = n.mod(number);
 //        long n = ThreadLocalRandom.current().nextLong(2,number-1);
         while (generatedRandNos.contains(n) || n.equals(one) || n.equals(zero)) {
-            n = new BigInteger(number.bitCount()+2, rand).mod(number);
+            n = new BigInteger(number.bitLength(), rand).mod(number);
         }
         generatedRandNos.add(n);
         randsize = randsize.add(one);
