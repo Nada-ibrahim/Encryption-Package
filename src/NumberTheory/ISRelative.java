@@ -1,17 +1,20 @@
 package NumberTheory;
 
+import java.math.BigInteger;
+import java.util.Objects;
+
 import static java.lang.Math.pow;
 
 public class ISRelative {
-    RelativePrime R=new RelativePrime();
-    boolean isRelative(int a, int n)
+    private RelativePrime R=new RelativePrime();
+    public String isRelative(int a, int n)
     {
         int num=R.numOFrelative(n);
-        int A_N=(int) pow(a,num);
-        if (A_N % n == 1%n)
-            return true ;
-        else if ((A_N*a) % n== a%n)
-            return false ;
-        return false ;
+        BigInteger A_N=BigInteger.valueOf(a).pow(num);
+        if (Objects.equals(A_N.mod(BigInteger.valueOf(n)), BigInteger.ONE))
+            return "Relative Prime because " + a + "^" + num + " mod " + n + " = 1" ;
+//        else if ((A_N*a) % n== a%n)
+//            return false ;
+        return "Not Relative Prime because " + a + "^" + num + " mod " + n + " = " +  A_N.mod(BigInteger.valueOf(n)) ;
     }
 }

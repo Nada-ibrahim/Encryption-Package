@@ -3,6 +3,7 @@ package sample;
 import ClassicalEncryption.Boundary.ClassicalEncHome;
 import DES.Boundary.DesPage;
 import GroupOperations.Boundary.GFHome;
+import NumberTheory.Boundary.NumTheoryHome;
 import NumberTheory.RelativePrime;
 import NumberTheory.TestPrimality;
 import javafx.application.Application;
@@ -41,10 +42,15 @@ public class Main extends Application {
         desBtn.setPrefWidth(200);
         desBtn.setAlignment(Pos.CENTER);
 
+        Button numTheoryBtn = new Button("Number Theory");
+        numTheoryBtn.setPrefHeight(200);
+        numTheoryBtn.setPrefWidth(200);
+        numTheoryBtn.setAlignment(Pos.CENTER);
+
         FlowPane buttons1 = new FlowPane(Orientation.HORIZONTAL);
         buttons1.getChildren().addAll(groupOpBtn,classicalEncBtn);
         FlowPane buttons2 = new FlowPane(Orientation.HORIZONTAL);
-        buttons2.getChildren().addAll(desBtn);
+        buttons2.getChildren().addAll(desBtn, numTheoryBtn);
 
         FlowPane allButtons = new FlowPane(Orientation.VERTICAL);
         allButtons.getChildren().addAll(buttons1, buttons2);
@@ -61,6 +67,10 @@ public class Main extends Application {
 
         desBtn.setOnAction(event -> {
             DesPage ch = new DesPage();
+            ch.build(primaryStage);
+        });
+        numTheoryBtn.setOnAction(event -> {
+            NumTheoryHome ch = new NumTheoryHome();
             ch.build(primaryStage);
         });
 
@@ -84,8 +94,8 @@ public class Main extends Application {
 //
 //        ISRelative IR=new ISRelative();
 //        System.out.println( IR.isRelative(3, 10));
-        TestPrimality p = new TestPrimality();
-        System.out.print(p.test(new BigInteger("199")));
-        //launch(args);
+//        TestPrimality p = new TestPrimality();
+//        System.out.print(p.test(new BigInteger("199")));
+        launch(args);
     }
 }

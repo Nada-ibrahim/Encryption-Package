@@ -1,27 +1,25 @@
 package NumberTheory;
 
-import sun.rmi.runtime.Log;
 
 import java.math.BigInteger;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Random;
 import java.util.Set;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class TestPrimality {
     //false --> composite
     //true --> prime
     private Set<BigInteger> generatedRandNos = new HashSet<>();
-    BigInteger two = new BigInteger("2");
-    BigInteger zero = new BigInteger("0");
-    BigInteger one = new BigInteger("1");
-    BigInteger three = new BigInteger("3");
-    BigInteger randsize = new BigInteger("0");
-    public boolean test(BigInteger number) {
+    private BigInteger two = new BigInteger("2");
+    private BigInteger zero = new BigInteger("0");
+    private BigInteger one = new BigInteger("1");
+    private BigInteger three = new BigInteger("3");
+    private BigInteger randsize = new BigInteger("0");
+    public String test(BigInteger number) {
 
         if (Objects.equals(number.mod(two), zero)) {
-            return false;
+            return "Not prime because number is not odd";
         }
         int k = 0;
         BigInteger q = number.subtract(one);
@@ -47,15 +45,13 @@ public class TestPrimality {
                     continue A;
                 }
             }
-            return false;
+            return "Not prime because the theory fails at a = " + a;
         }
-        return true;
+        return "Prime because the theory holds for all 1 < a < " + (number.subtract(one));
     }
 
     private BigInteger generateRandom(BigInteger number) {
         Random rand = new Random();
-        int c = number.bitCount();
-        c = number.bitLength();
         BigInteger n = new BigInteger(number.bitLength(), rand);
         n = n.mod(number);
 //        long n = ThreadLocalRandom.current().nextLong(2,number-1);
