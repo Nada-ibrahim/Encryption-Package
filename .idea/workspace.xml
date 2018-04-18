@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/NumberTheory/Boundary/EulersFnPage.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/NumberTheory/Boundary/NumTheoryHome.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/NumberTheory/Boundary/PrimalityTestPage.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/NumberTheory/Boundary/RelativePrimePage.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Security_Assign_GUI/sample/Main.class" afterPath="$PROJECT_DIR$/out/production/Security_Assign_GUI/sample/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NumberTheory/ISRelative.java" afterPath="$PROJECT_DIR$/src/NumberTheory/ISRelative.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NumberTheory/RelativePrime.java" afterPath="$PROJECT_DIR$/src/NumberTheory/RelativePrime.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NumberTheory/TestPrimality.java" afterPath="$PROJECT_DIR$/src/NumberTheory/TestPrimality.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Main.java" afterPath="$PROJECT_DIR$/src/sample/Main.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -142,8 +134,8 @@
       <file leaf-file-name="ISRelative.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/NumberTheory/ISRelative.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="12" column="36" lean-forward="true" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+            <state relative-caret-position="189">
+              <caret line="14" column="62" lean-forward="false" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -532,7 +524,14 @@
       <option name="project" value="LOCAL" />
       <updated>1523963305056</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added GUI of Number Theory package, edited to handle test cases">
+      <created>1524071123716</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1524071123716</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -584,7 +583,8 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="Added testing primality and relative prime" />
     <MESSAGE value="Added random a" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added random a" />
+    <MESSAGE value="Added GUI of Number Theory package, edited to handle test cases" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added GUI of Number Theory package, edited to handle test cases" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1003,8 +1003,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/NumberTheory/ISRelative.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="12" column="36" lean-forward="true" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+        <state relative-caret-position="189">
+          <caret line="14" column="62" lean-forward="false" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
