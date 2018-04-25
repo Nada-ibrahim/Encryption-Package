@@ -2,6 +2,8 @@ package sample;
 
 import ClassicalEncryption.Boundary.ClassicalEncHome;
 import DES.Boundary.DesPage;
+import DiscreteLog.Boundary.DiscreteLogHome;
+import DiscreteLog.DiscreteLog;
 import GroupOperations.Boundary.GFHome;
 import NumberTheory.Boundary.NumTheoryHome;
 import NumberTheory.RelativePrime;
@@ -28,29 +30,35 @@ public class Main extends Application {
         //System.out.println(Math.floorMod(-11, 26));
         //Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         Button groupOpBtn = new Button("Group Operations");
-        groupOpBtn.setPrefHeight(200);
-        groupOpBtn.setPrefWidth(200);
+        groupOpBtn.setPrefHeight(180);
+        groupOpBtn.setPrefWidth(180);
         groupOpBtn.setAlignment(Pos.CENTER);
 
         Button classicalEncBtn = new Button("Classical Encryption");
-        classicalEncBtn.setPrefHeight(200);
-        classicalEncBtn.setPrefWidth(200);
+        classicalEncBtn.setPrefHeight(180);
+        classicalEncBtn.setPrefWidth(180);
         classicalEncBtn.setAlignment(Pos.CENTER);
 
         Button desBtn = new Button("DES Encryption");
-        desBtn.setPrefHeight(200);
-        desBtn.setPrefWidth(200);
+        desBtn.setPrefHeight(180);
+        desBtn.setPrefWidth(180);
         desBtn.setAlignment(Pos.CENTER);
 
         Button numTheoryBtn = new Button("Number Theory");
-        numTheoryBtn.setPrefHeight(200);
-        numTheoryBtn.setPrefWidth(200);
+        numTheoryBtn.setPrefHeight(180);
+        numTheoryBtn.setPrefWidth(180);
         numTheoryBtn.setAlignment(Pos.CENTER);
 
+        Button discLogBtn = new Button("Discrete Logarithm");
+        discLogBtn.setPrefHeight(180);
+        discLogBtn.setPrefWidth(180);
+        discLogBtn.setAlignment(Pos.CENTER);
+
         FlowPane buttons1 = new FlowPane(Orientation.HORIZONTAL);
-        buttons1.getChildren().addAll(groupOpBtn,classicalEncBtn);
+        buttons1.getChildren().addAll(groupOpBtn,classicalEncBtn, discLogBtn);
         FlowPane buttons2 = new FlowPane(Orientation.HORIZONTAL);
         buttons2.getChildren().addAll(desBtn, numTheoryBtn);
+
 
         FlowPane allButtons = new FlowPane(Orientation.VERTICAL);
         allButtons.getChildren().addAll(buttons1, buttons2);
@@ -73,8 +81,12 @@ public class Main extends Application {
             NumTheoryHome ch = new NumTheoryHome();
             ch.build(primaryStage);
         });
+        discLogBtn.setOnAction(event -> {
+            DiscreteLogHome ch = new DiscreteLogHome();
+            ch.build(primaryStage);
+        });
 
-        Scene myScene = new Scene(allButtons, 500,500);
+        Scene myScene = new Scene(allButtons, 500,600);
         Main.sceneStack.push(myScene);
         primaryStage.setTitle("Security");
         primaryStage.setScene(myScene);
@@ -83,19 +95,8 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-//        RelativePrime R = new RelativePrime();
-//        System.out.println("R " +R.numOFrelative(35));
-//        List num = R.SetRelative;
-////         for (int i=0 ;i<num.size();i++)
-////         {
-////                 System.out.println(num.get(i));
-////
-////         }
-//
-//        ISRelative IR=new ISRelative();
-//        System.out.println( IR.isRelative(3, 10));
-//        TestPrimality p = new TestPrimality();
-//        System.out.print(p.test(new BigInteger("199")));
+        DiscreteLog dl = new DiscreteLog(18);
+        dl.getDiscreteLog(4,19);
         launch(args);
     }
 }
