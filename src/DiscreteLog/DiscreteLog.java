@@ -26,8 +26,13 @@ public class DiscreteLog {
             BigInteger b = aBig.pow(i).mod(pBig);
             int bInt = (int)b.doubleValue();
             if (bInt <= m && bInt > 0){
-                timeList[bInt - 1] = System.nanoTime() - start;
-                iList[bInt-1] = i;
+                if(iList[bInt - 1] == 0) {
+                    timeList[bInt - 1] = System.nanoTime() - start;
+                    iList[bInt - 1] = i;
+                }
+                sz++;
+            }
+            if(bInt == 0){
                 sz++;
             }
             ++i;

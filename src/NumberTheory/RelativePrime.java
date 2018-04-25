@@ -6,7 +6,7 @@ import java.util.List;
 
 public class RelativePrime {
 
-    private List<Integer> SetRelative = new ArrayList<>();
+    public List<Integer> SetRelative = new ArrayList<>();
 
     private List<Integer> GetDivisionNum(int num) {
         List<Integer> NumDiv = new ArrayList<>();

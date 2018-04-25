@@ -35,9 +35,9 @@ public class DiscreteLogHome {
         Main.sceneStack.push(myScene);
 
         DiscreteLogPage lp = new DiscreteLogPage();
-        //EulersFnPage zf = new EulersFnPage();
+        PrimitiveRootPage zf = new PrimitiveRootPage();
 
-        //listGroupBtn.setOnAction(event -> lp.build(primaryStage));
+        listGroupBtn.setOnAction(event -> zf.build(primaryStage));
         zFieldGroupBtn.setOnAction(event -> lp.initializeDiscreteLogPage(primaryStage));
 
         primaryStage.setScene(myScene);

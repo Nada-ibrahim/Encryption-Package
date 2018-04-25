@@ -9,7 +9,7 @@ import NumberTheory.Boundary.NumTheoryHome;
 import NumberTheory.RelativePrime;
 import NumberTheory.TestPrimality;
 import javafx.application.Application;
-
+import DiscreteLog.PrimitiveRoot;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -95,8 +95,10 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        DiscreteLog dl = new DiscreteLog(18);
-        dl.getDiscreteLog(4,19);
+//        DiscreteLog dl = new DiscreteLog(18);
+//        dl.getDiscreteLog(4,19);
+        PrimitiveRoot P=new PrimitiveRoot();
+        System.out.println(P.GetA(2, 9));
         launch(args);
     }
 }
