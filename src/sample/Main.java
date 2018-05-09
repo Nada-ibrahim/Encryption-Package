@@ -8,6 +8,9 @@ import GroupOperations.Boundary.GFHome;
 import NumberTheory.Boundary.NumTheoryHome;
 import NumberTheory.RelativePrime;
 import NumberTheory.TestPrimality;
+import RSAEncryption.Boundary.RSAPage;
+import RSAEncryption.RSA;
+import SecurityMath.CheckPrime;
 import javafx.application.Application;
 import DiscreteLog.PrimitiveRoot;
 import javafx.geometry.Orientation;
@@ -30,34 +33,39 @@ public class Main extends Application {
         //System.out.println(Math.floorMod(-11, 26));
         //Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         Button groupOpBtn = new Button("Group Operations");
-        groupOpBtn.setPrefHeight(180);
-        groupOpBtn.setPrefWidth(180);
+        groupOpBtn.setPrefHeight(130);
+        groupOpBtn.setPrefWidth(130);
         groupOpBtn.setAlignment(Pos.CENTER);
 
         Button classicalEncBtn = new Button("Classical Encryption");
-        classicalEncBtn.setPrefHeight(180);
-        classicalEncBtn.setPrefWidth(180);
+        classicalEncBtn.setPrefHeight(130);
+        classicalEncBtn.setPrefWidth(130);
         classicalEncBtn.setAlignment(Pos.CENTER);
 
         Button desBtn = new Button("DES Encryption");
-        desBtn.setPrefHeight(180);
-        desBtn.setPrefWidth(180);
+        desBtn.setPrefHeight(130);
+        desBtn.setPrefWidth(130);
         desBtn.setAlignment(Pos.CENTER);
 
         Button numTheoryBtn = new Button("Number Theory");
-        numTheoryBtn.setPrefHeight(180);
-        numTheoryBtn.setPrefWidth(180);
+        numTheoryBtn.setPrefHeight(130);
+        numTheoryBtn.setPrefWidth(130);
         numTheoryBtn.setAlignment(Pos.CENTER);
 
         Button discLogBtn = new Button("Discrete Logarithm");
-        discLogBtn.setPrefHeight(180);
-        discLogBtn.setPrefWidth(180);
+        discLogBtn.setPrefHeight(130);
+        discLogBtn.setPrefWidth(130);
         discLogBtn.setAlignment(Pos.CENTER);
+
+        Button rsaBtn = new Button("RSA Encryption");
+        rsaBtn.setPrefHeight(130);
+        rsaBtn.setPrefWidth(130);
+        rsaBtn.setAlignment(Pos.CENTER);
 
         FlowPane buttons1 = new FlowPane(Orientation.HORIZONTAL);
         buttons1.getChildren().addAll(groupOpBtn,classicalEncBtn, discLogBtn);
         FlowPane buttons2 = new FlowPane(Orientation.HORIZONTAL);
-        buttons2.getChildren().addAll(desBtn, numTheoryBtn);
+        buttons2.getChildren().addAll(desBtn, numTheoryBtn, rsaBtn);
 
 
         FlowPane allButtons = new FlowPane(Orientation.VERTICAL);
@@ -85,6 +93,10 @@ public class Main extends Application {
             DiscreteLogHome ch = new DiscreteLogHome();
             ch.build(primaryStage);
         });
+        rsaBtn.setOnAction(event -> {
+            RSAPage ch = new RSAPage();
+            ch.build(primaryStage);
+        });
 
         Scene myScene = new Scene(allButtons, 500,600);
         Main.sceneStack.push(myScene);
@@ -97,8 +109,14 @@ public class Main extends Application {
     public static void main(String[] args) {
 //        DiscreteLog dl = new DiscreteLog(18);
 //        dl.getDiscreteLog(4,19);
-        PrimitiveRoot P=new PrimitiveRoot();
-        System.out.println(P.GetA(2, 9));
+        RSA r = new RSA();
+
+//        r.generateKey("10007", "100003");
+//        String enc = r.encrypt("we");
+//        System.out.println(enc);
+//        System.out.println(CheckPrime.isPrime(BigInteger.valueOf(10007)));
+//        System.out.println(CheckPrime.isPrime(BigInteger.valueOf(100003)));
+//        System.out.println(r.decrypt(enc));
         launch(args);
     }
 }
