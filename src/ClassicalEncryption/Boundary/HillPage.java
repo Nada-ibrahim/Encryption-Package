@@ -5,10 +5,7 @@ import ClassicalEncryption.PlayFair;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 import sample.Main;
@@ -26,6 +23,9 @@ public class HillPage {
         keyTxt.setPrefWidth(400);
         keyTxt.setPrefHeight(40);
         keyTxt.setFocusTraversable(false);
+
+        RadioButton rb2 = new RadioButton("2*2");
+        RadioButton rb3 = new RadioButton("3*3");
 
         Button encryptBtn = new Button("Encrypt");
         encryptBtn.setPrefHeight(50);
@@ -47,8 +47,12 @@ public class HillPage {
         Label outputLbl = new Label();
         outputLbl.setVisible(false);
 
+        FlowPane radioPane = new FlowPane(Orientation.HORIZONTAL);
+        radioPane.setHgap(30);
+        radioPane.getChildren().addAll(rb2, rb3);
+
         FlowPane allPane = new FlowPane(Orientation.VERTICAL, 0, 10);
-        allPane.getChildren().addAll(sentenceTxt, keyTxt, buttonsPane, outputLbl);
+        allPane.getChildren().addAll(sentenceTxt, keyTxt, radioPane, buttonsPane, outputLbl);
         allPane.setAlignment(Pos.CENTER);
 
         backBtn.setOnAction(event -> {
@@ -59,14 +63,20 @@ public class HillPage {
         encryptBtn.setOnAction(event -> {
             String sentence = sentenceTxt.getText();
             String key = keyTxt.getText();
-            if(key.length() < 4){
+            if(key.length() < 4 && rb2.isSelected()) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Error");
                 //alert.setHeaderText("Look, an Information Dialog");
                 alert.setContentText("key length must be at least 4");
                 alert.show();
+            }else if(key.length() < 9 && rb3.isSelected()){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Error");
+                //alert.setHeaderText("Look, an Information Dialog");
+                alert.setContentText("key length must be at least 9");
+                alert.show();
             }else {
-                Hill p = new Hill(key);
+                Hill p = new Hill(key, rb2.isSelected()? 2:3);
                 String output = p.encrypt(sentence);
                 outputLbl.setText(output);
                 outputLbl.setVisible(true);
@@ -76,14 +86,20 @@ public class HillPage {
         decryptBtn.setOnAction(event -> {
             String sentence = sentenceTxt.getText();
             String key = keyTxt.getText();
-            if(key.length() < 4){
+            if(key.length() < 4 && rb2.isSelected()) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Error");
                 //alert.setHeaderText("Look, an Information Dialog");
                 alert.setContentText("key length must be at least 4");
                 alert.show();
+            }else if(key.length() < 9 && rb3.isSelected()){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Error");
+                //alert.setHeaderText("Look, an Information Dialog");
+                alert.setContentText("key length must be at least 9");
+                alert.show();
             }else {
-                Hill p = new Hill(key);
+                Hill p = new Hill(key, rb2.isSelected()? 2:3);
                 String output = p.decrypt(sentence);
                 outputLbl.setText(output);
                 outputLbl.setVisible(true);
